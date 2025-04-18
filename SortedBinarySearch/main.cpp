@@ -35,11 +35,36 @@ int search(const std::vector<int> & nums, int target) {
    
 }
 
+int recursiveSearch(const std::vector<int>& nums, int start, int end, int target) {
+    if (nums.empty()) return -1;
+
+    if (start > end) return -1;
+
+    int mid = start + (end - start) / 2;
+
+    if (nums[mid] == target) return mid;
+
+    if (nums[start] <= nums[mid]) {
+        if (nums[start] <= target && target < nums[mid]) {
+            return recursiveSearch(nums, start, mid - 1, target);
+        } else {
+            return recursiveSearch(nums, mid + 1, end, target);
+        }
+    } else {
+        if (nums[mid] < target && target <= nums[end]) {
+            return recursiveSearch(nums, mid + 1, end, target);
+        } else {
+            return recursiveSearch(nums, start, mid - 1, target);
+        }
+    }
+}
+
 int main() {
 
     std::vector<int> ip {4,5,6,7,8,1,2,3};
     int target = 7;
     std::cout << "index of " << target << " is: " << search(ip, target) << std::endl;
+    std::cout << "index of " << target << " is: " << recursiveSearch(ip, 0, ip.size() - 1, target) << std::endl;
 
     return 0;
 }
