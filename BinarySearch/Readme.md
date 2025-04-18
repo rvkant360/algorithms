@@ -1,3 +1,5 @@
+<div style="font-size: 6px">
+
 ```mermaid
 flowchart TD
     A[Start] --> B{Is target == mid?}
