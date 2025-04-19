@@ -7,3 +7,5 @@ flowchart TD
     B -- No --> D{target < mid}
     D -- Yes --> E[Search left half]
     D -- No --> F[Search right half]
+```
+</div>
