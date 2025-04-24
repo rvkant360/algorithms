@@ -29,13 +29,13 @@ void selectionSort(int arr[], int size) {
 // O(n^2)
 void insertionSort(int arr[], int size) {
      for (int i = 1; i < size; i++) {
-        int curr = arr[i];
+        int curr = arr[i]; // Element to be inserted
         int prev = i - 1;
         while (prev >= 0 && arr[prev] > curr) {
             arr[prev + 1] = arr[prev];
             prev--;
         }
-        arr[prev + 1] = curr;
+        arr[prev + 1] = curr; // Insert curr at the correct position
      }
 }
 
